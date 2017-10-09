@@ -1,0 +1,18 @@
+{
+  "name": "produkcyjna_socketio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^2.5.6"
+  },
+  "devDependencies": {
+    "express": "^4.15.3",
+    "socket.io": "^2.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
