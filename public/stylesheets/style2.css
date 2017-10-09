@@ -6,11 +6,13 @@ body {
 div#wraper {
 	position: absolute;
 	width: 100%;
+	height: 100%;
 }	
 
 div#board {
-	position: absolute;
+	position: relative;
 	width: 72%;
+	height: 100%; 
 	left: 13.5%;
 	right: 12.5%;	
 }
@@ -52,15 +54,15 @@ div#sek1{
 	height: 100%;
 	float: left;
 	padding-right: 0.5em;
-	bottom: 0%;
+	top: 0%;
 }
 
 div#sek2{
 	position: absolute;
-	width: 94%;
+	width: 93%;
 	height: 100%;
 	right: 0%;
-	bottom: 0%; 
+	top: 0%; 
    font-size: 0.8em;
    font-family: Sans, Arial, Verdana;
    text-align:left;
@@ -73,6 +75,9 @@ div#sek2{
     overflow:hidden; 
     background-color: #4d4d4d;
     color: #696969;
+    border: 2px solid;
+	 border-color: #505050;
+	 border-style:groove;
 	 padding-left: 0.4em;
 }
 
@@ -107,10 +112,12 @@ div#sek2{
 }
 
 span {
+  //margin-top: 1px;
+  //margin-left: 0.4em;
+  
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
-  padding-bottom: 0.1em;
   font-size: 0.9em;
 }
 
@@ -146,7 +153,6 @@ span {
 #windowRight_2 p{
 	margin-top: 0.5em;
 	margin-left: 0.2em;
-	font-size: 0.9em;
 	color: yellow;
 }
 
@@ -225,7 +231,7 @@ span {
 	bottom: 35.2em;
 	color: black;
 }
-#deployShips1{
+#deployShips2{
 	height: 3em;
 	line-height: 3em;
 	top: 2em;
@@ -233,7 +239,6 @@ span {
 	font-size: 90%;
 	cursor: pointer; 
 	cursor: hand;
-	display: none;
 	animation-name: dep;
    animation-duration: 2s;
    animation-iteration-count: 3;
@@ -284,6 +289,9 @@ div#sek4{
     left: 0px;
     background-color: #4d4d4d;
     color: #696969;
+    border: 2px solid;
+	 border-color: #505050;
+	 border-style:groove;
 	 padding-right: 0.5em;
 }
 
@@ -301,7 +309,7 @@ div#sek4{
 	 animation-duration: 3s;
     animation-iteration-count: 3;
 }
-   
+
 .markerLeft {
 	 position: absolute;
     left: 0.5em;    
@@ -398,15 +406,14 @@ div#sek4{
 }
 
 #powrot{
-	height: 3.5em;
-	line-height: 3.5em;
+	height: 3.4em;
+	line-height: 3.4em;
 	top: 2em;
-	left: 0em;
 	color:yellow; 
 	font-size: 90%;
-	text-align: center;
 	cursor: pointer; 
 	cursor: hand;
+	text-align: center;
 }
 
 .move {
@@ -438,8 +445,6 @@ form input {
 	margin-left: 50px;
 	margin-bottom: 30px;
 	padding: 5px;
-	cursor: pointer; 
-	cursor: hand;
 }
 
 .message {
@@ -461,14 +466,9 @@ form input {
 #shipDefended {
 	height: 6em;
 }
-
 #win {
 	height: 11em;
 	margin-top: -11em;
-}
-
-#neutralZone{
-	height: 6em;
 }
 
 #yesButton1{
@@ -506,11 +506,6 @@ form input {
 	margin-left: 80px;
 }
 
-#lose2 {
- 	width: 500px;
- 	height: 120px;
- 	margin-left:-255px;
-}
 #okButton2 {
 	margin-left: 200px;
 }
@@ -530,12 +525,6 @@ form input {
  	width: 160px;
 	margin-left: 210px;
 }
-#endGame1 {
-	 height: 10em;
- 	 animation-name: dep;
-	 animation-duration: 3s;
-    animation-iteration-count: 3;
-}
 
 #endGame3 {
 	width: 580px;
@@ -545,24 +534,6 @@ form input {
 	width: 620px;
  	margin-left:-310px;
 }
-
-#waiting {
-	width: 400px;
-	height: 100px;
- 	margin-left:-200px;
- 	font-size: 1.5em;
- 	text-align: center;
- 	line-height: 100px;
- 	display: inherit;
- 	animation-name: wait;
-   animation-duration: 3s;	
-}
-
-@keyframes wait {
-    from {opacity: 0.0;}
-    to {opacity: 1.0;}
-}
-
 #returnToMainPage {
 	width: 30em;
 	height: 4.3em;
@@ -619,66 +590,67 @@ form input {
 }
 
 .pancernikA  {
-	background: url("/Images/graczA/pancernik.png") bottom center no-repeat;	
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;	
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;	
 }
 .rakietowyA {
-	background: url("/Images/graczA/rakietowy.png") bottom center no-repeat;
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;	
 }
 .krazawnikA {
-	background: url("/Images/graczA/krazawnik.png") bottom center no-repeat;		
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;		
 }
 .niszczycielA {
-	background: url("/Images/graczA/niszczyciel.png") bottom center no-repeat;	
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;	
 }
 .podwodnyA {
-	background: url("/Images/graczA/podwodny.png") bottom center no-repeat;	
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;	
 }
 .eskortowiecA  {
-	background: url("/Images/graczA/eskortowiec.png") bottom center no-repeat;	
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;	
 }
 .tralowiecA {
-	background: url("/Images/graczA/tralowiec.png") bottom center no-repeat;	
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;	
 }
 .desantowyA {
-	background: url("/Images/graczA/desantowy.png") bottom center no-repeat;
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;
 }
 .bateriaA {
-	background: url("/Images/graczA/bateria.png") bottom center no-repeat;
+	background: url("/Images/graczA/bateriaA.png") bottom center no-repeat;
 }
 .minaA  {
-	background: url("/Images/graczA/mina.png") bottom center no-repeat;
+	background: url("/Images/graczA/shipA.png") bottom center no-repeat;
+}
+.desantowyA_endGame {
+	background: url("/Images/graczA/desantowy.png") bottom center no-repeat;
 }
 
 .pancernikB  {
-	background: url("/Images/graczB/shipB.png") bottom center no-repeat;	
+	background: url("/Images/graczB/pancernik.png") bottom center no-repeat;	
 }
 .rakietowyB {
-	background: url("/Images/graczB/shipB.png") bottom center no-repeat;
+	background: url("/Images/graczB/rakietowy.png") bottom center no-repeat;
 }
 .krazawnikB {
-	background: url("/Images/graczB/shipB.png") bottom center no-repeat;
+	background: url("/Images/graczB/krazawnik.png") bottom center no-repeat;
 }
 .niszczycielB {
-	background: url("/Images/graczB/shipB.png") bottom center no-repeat;
+	background: url("/Images/graczB/niszczyciel.png") bottom center no-repeat;
 }
 .podwodnyB {
-	background: url("/Images/graczB/shipB.png") bottom center no-repeat;
+	background: url("/Images/graczB/podwodny.png") bottom center no-repeat;
 }
 .eskortowiecB  {
-	background: url("/Images/graczB/shipB.png") bottom center no-repeat;
+	background: url("/Images/graczB/eskortowiec.png") bottom center no-repeat;
 }
 .tralowiecB {
-	background: url("/Images/graczB/shipB.png") bottom center no-repeat;
+	background: url("/Images/graczB/tralowiec.png") bottom center no-repeat;
 }
 .desantowyB {
-	background: url("/Images/graczB/shipB.png") bottom center no-repeat;
+	background: url("/Images/graczB/desantowy.png") bottom center no-repeat;
 }
 .bateriaB {
-	background: url("/Images/graczB/bateriaB.png") bottom center no-repeat;
+	background: url("/Images/graczB/bateria.png") bottom center no-repeat;
 }
 .minaB  {
-	background: url("/Images/graczB/shipB.png") bottom center no-repeat;
-}
-.desantowyB_endGame {
-	background: url("/Images/graczB/desantowy.png") bottom center no-repeat;
+	background: url("/Images/graczB/mina.png") bottom center no-repeat;
 }
