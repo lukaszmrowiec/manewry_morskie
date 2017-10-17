@@ -1,8 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {
-   view.checkPresencePlayers();
-	clikassign();
-	tourMessage();
-	addboardModel();
+const board = document.getElementsByTagName('td');
+let boardModel = [];
+
+function clikassign() {
+  for (var i = 0; i < board.length; i++) {
+	const clik = board;
+	 clik[i].onmousedown = gameRoundMenage;
+	 }
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+  view.checkPresencePlayers();
+  clikassign();
+  tourMessage();
+  addboardModel();
 }, false);
 document.getElementById("powrot").addEventListener("click", backToMainPage);
 //document.getElementById("deployShips2").addEventListener("click", function () {style.display = "none"});
@@ -20,8 +30,6 @@ function backToMainPage() {
 	document.getElementById("stayButton").addEventListener("click", function () {document.getElementById("returnToMainPage").style.display = "none"});
 }
 
-var board = document.getElementsByTagName("td"),
-    boardModel = [],
     //reverseBoardModel,
     playerAmove = true,
     playerBmove = false,
@@ -86,15 +94,7 @@ function findShipType(array, shipType) {
 		}
 	}	
 	return numOfTypeShip;
-};
-
-function clikassign() {
-	var clik = board;
-	for (var i = 0; i < board.length; i++){
-	    clik[i].onmousedown = gameRoundMenage;	    
-	 }
-};
-
+}
 function gameRoundMenage(eventObj){
 var token = true, player = location.href,
 	 playerIndex = player.charAt(player.length-1);	 
