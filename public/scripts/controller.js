@@ -1,12 +1,23 @@
+function gameRoundMenage (eventObj) {
+  var token = true, player = location.href,
+  playerIndex = player.charAt(player.length-1);	 
+		if (playerIndex === "A" && playerAmove === true && playerBmove === false) {
+			clickingProcedure(eventObj, token, playerIndex);
+			
+		} else if (playerIndex === "B" && playerBmove === true && playerAmove === false) {
+			clickingProcedure(eventObj, token, playerIndex);
+		}  
+	};
+
 const board = document.getElementsByTagName('td');
 let boardModel = [];
 
 function clikassign() {
   for (var i = 0; i < board.length; i++) {
-	const clik = board;
-	 clik[i].onmousedown = gameRoundMenage;
-	 }
-};
+    const clik = board;
+    clik[i].onmousedown = gameRoundMenage;
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   view.checkPresencePlayers();
@@ -14,17 +25,16 @@ document.addEventListener('DOMContentLoaded', function () {
   tourMessage();
   addboardModel();
 }, false);
-document.getElementById("powrot").addEventListener("click", backToMainPage);
-//document.getElementById("deployShips2").addEventListener("click", function () {style.display = "none"});
+document.getElementById('powrot').addEventListener('click', backToMainPage);
 
 function backToMainPage() {
-	document.getElementById("returnToMainPage").style.display = "block";
-	document.getElementById("returnButton").addEventListener("click", function () {
-		 msg = {
-					  	type: "opponentleaveTheGame",
-					  	location: page
-					};
-			socket.emit('gameControl', JSON.stringify(msg));
+  document.getElementById('returnToMainPage').style.display = 'block';
+  document.getElementById('returnButton').addEventListener('click', function () {
+    msg = {
+      type: "opponentleaveTheGame",
+      location: page
+	};
+    socket.emit('gameControl', JSON.stringify(msg));
 		window.open("index", "_self");
 	});
 	document.getElementById("stayButton").addEventListener("click", function () {document.getElementById("returnToMainPage").style.display = "none"});
@@ -95,19 +105,7 @@ function findShipType(array, shipType) {
 	}	
 	return numOfTypeShip;
 }
-function gameRoundMenage(eventObj){
-var token = true, player = location.href,
-	 playerIndex = player.charAt(player.length-1);	 
-	 
-	if (playerIndex === "A" && playerAmove === true && playerBmove === false) {
-		clickingProcedure(eventObj, token, playerIndex);
-		
-	} else if (playerIndex === "B" && playerBmove === true && playerAmove === false) {
-		clickingProcedure(eventObj, token, playerIndex);
-	}  
-};
-
- function changePage() {
+function changePage() {
  	 window.location.replace('index');
  }
 
