@@ -1,0 +1,105 @@
+body {
+	background-color: black;
+}
+
+.centerBack {
+	position: relative;
+	top: 0px;
+	width: 800px;
+	margin:auto;
+	border-spacing: 0px;
+	left:50%;
+	margin-left:-400px;
+}
+
+#header {
+	height: 314px;
+	top: 0px;	
+	background: url("/Images/tlo1.png") no-repeat;
+}
+
+#menu{
+	height: 592px;
+	top: 0px;
+   background: url("/Images/plansza_invers2.png") no-repeat;
+}
+
+.buttons {
+	position: absolute;
+	width: 200px;
+	height: 53px;
+	left: 175px;
+	top: 100px;
+   background-color: black;
+	color: yellow;
+	font-size: 20px;
+}
+#graj {
+	 background: url("/Images/button_back1.png") no-repeat;
+}
+
+#instrukcja {
+ 	margin-left: 250px;
+ 	background: url("/Images/button_back2.png") no-repeat;
+}
+
+h2,h3,h4 {
+	text-align: center;	
+}
+
+#tekst {	
+	height: 1450px;
+	background-color: black;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 0px; 
+	padding: 10px;
+	font-size: 1.2em;
+}
+li{
+	padding-top: 10px;
+}
+
+#powrot{
+	position: fixed;
+	width: 12em;
+	//height: 4em;
+	line-height: 3em;
+	left: 0em;
+	top: 2em;
+	border-color: #696969;
+	border-style:groove;
+	color:yellow; 
+	text-align: center;
+	font-size: 0.8em;
+}
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+form {
+	display: block;
+	position: fixed;
+	left:0%;
+	top: 0%;	
+	margin: auto;
+	width: 450px;
+	height: 90px;
+	color: white;;
+	background-color: black;
+	animation-name: dep;
+   animation-duration: 2s;
+   animation-iteration-count: 1;
+}
+@keyframes dep {
+    from {opacity: 0.0;}
+    to {opacity: 1.0;}
+}
+
+#test h3{
+	//line-height: 5em;
+	text-align: center;
+}
+
