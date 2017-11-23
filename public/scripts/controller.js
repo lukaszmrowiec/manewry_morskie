@@ -13,7 +13,7 @@ function addboardModel() {
   let y2;
   const playerIndex = player.charAt(player.length - 1);
 
-  for (let i = 0; i < board.length; i += 1) {
+  for (let i = 0; i < board.length; i++) {
     boardModel.push([board[i].id, 'wolny', 'atak', 'klasa', 'gracz', 0, 0, 'nazwa', 'ulega', 'opis', 'ruch', x1, y1, x2, y2]);
     if (model.neutralny.indexOf(board[i].id) !== -1) {
       boardModel[i][2] = 'neutralne';
@@ -261,8 +261,8 @@ function checkAtackResults(boardModelIndex, playerIndex, userClick) {
         location: page,
       };
       socket.emit('gameControl', JSON.stringify(msg));
-      document.getElementById('yesButton3').addEventListener('click', () => { atackWinWithMove(boardModelIndex, userClick); });
-      document.getElementById('noButton4').addEventListener('click', () => { atackWinWithNoMove(boardModelIndex, userClick); });
+      document.getElementById('yesButton3').addEventListener('click', function () { atackWinWithMove(boardModelIndex, userClick)});
+      document.getElementById('noButton4').addEventListener('click', function () { atackWinWithNoMove(boardModelIndex, userClick)});
       tourManager(playerIndex);
     }
   }
@@ -371,7 +371,7 @@ function clickingProcedure(eventObj, token, playerIndex) {
       };
       socket.emit('gameControl', JSON.stringify(msg));
       view.displayMessage('mes');
-      document.getElementById('yesButton1').addEventListener('click', () => {compareOpponets(boardModelIndex, playerIndex, userClick);});
+      document.getElementById('yesButton1').addEventListener('click', function() {compareOpponets(boardModelIndex, playerIndex, userClick);});
       document.getElementById('noButton2').addEventListener('click', abortAtack);
     }
   }
@@ -425,3 +425,13 @@ document.addEventListener('DOMContentLoaded', () => {
   addboardModel();
 }, false);
 document.getElementById('powrot').addEventListener('click', backToMainPage);
+
+function shipTypeLeft(array, shipType) {
+  let numOfTypeShip = 0;
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i].nazwa == shipType) {
+      numOfTypeShip += 1;
+    }
+  }
+  return numOfTypeShip;
+}
