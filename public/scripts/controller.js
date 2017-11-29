@@ -165,6 +165,7 @@ function movingShip(userClick, boardModelIndex) {
   return true;
 }
 
+
 function abortAtack() {
   view.hideMessage('mes');
   emptyClickProc();
@@ -435,3 +436,4 @@ function shipTypeLeft(array, shipType) {
   }
   return numOfTypeShip;
 }
+
