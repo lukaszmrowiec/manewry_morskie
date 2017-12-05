@@ -13,7 +13,7 @@ function addboardModel() {
   let y2;
   const playerIndex = player.charAt(player.length - 1);
 
-  for (let i = 0; i < board.length; i++) {
+  for (let i = 0; i < board.length; i += 1) {
     boardModel.push([board[i].id, 'wolny', 'atak', 'klasa', 'gracz', 0, 0, 'nazwa', 'ulega', 'opis', 'ruch', x1, y1, x2, y2]);
     if (model.neutralny.indexOf(board[i].id) !== -1) {
       boardModel[i][2] = 'neutralne';
@@ -178,12 +178,11 @@ function abortAtack() {
 
 function atackWinWithMove(boardModelIndex, userClick) {
   const arrayToSend = [];
-  let msg;
   view.hideMessage('win');
   movingShip(userClick, boardModelIndex);
   arrayToSend[0] = userClick;
   arrayToSend[1] = boardModelIndex;
-  msg = {
+  const msg = {
     type: 'atackWinWithMove',
     data: arrayToSend,
     location: page,
@@ -372,7 +371,7 @@ function clickingProcedure(eventObj, token, playerIndex) {
       };
       socket.emit('gameControl', JSON.stringify(msg));
       view.displayMessage('mes');
-      document.getElementById('yesButton1').addEventListener('click', function() {compareOpponets(boardModelIndex, playerIndex, userClick);});
+      document.getElementById('yesButton1').addEventListener('click', function() {compareOpponets(boardModelIndex, playerIndex, userClick); });
       document.getElementById('noButton2').addEventListener('click', abortAtack);
     }
   }
