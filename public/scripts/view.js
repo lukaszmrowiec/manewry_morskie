@@ -74,7 +74,7 @@ const view = {
     delete boardModel[index][10];
     boardModel[index][10] = 'ruch';
   },
-  // wyświetla okręty na początkowych pozycjach w porcie A
+  // displays ships at the starting positions in port A
   placeShipsA() {
     cropShips(model.shipsA);
     const shipsAarray = mixArray(model.shipsA);
