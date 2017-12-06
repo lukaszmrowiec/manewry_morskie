@@ -20,6 +20,16 @@ function addboardModel() {
     }
   }
 
+  /*
+  function defaultBoardValue(item, index) {
+    boardModel.push([board[index].id, 'wolny', 'atak', 'klasa', 'gracz', 0, 0, 'nazwa', 'ulega', 'opis', 'ruch', x1, y1, x2, y2]);
+    if (model.neutralny.indexOf(board[index].id) !== -1) {
+      boardModel[index][2] = 'neutralne';
+    }
+  }
+
+  boardModel.forEach(defaultBoardValue);
+*/
   if (playerIndex === 'B') {
     boardModel = boardModel.reverse();
   }
@@ -69,17 +79,31 @@ function findCell(id) {
   }
   return cell;
 }
+
+function clearInitialMovementCoordinates(item, index) {
+  boardModel[index][5] = 0;
+}
+
 function deleteFlags() {
-  for (let i = 0; i < boardModel.length; i += 1) { boardModel[i][5] = 0; }
+  boardModel.forEach(clearInitialMovementCoordinates);
 }
+
+function noAvilableMoves(item, index) {
+  boardModel[index][6] = 0;
+}
+
 function delAvilableMoves() {
-  for (let i = 0; i < boardModel.length; i += 1) { boardModel[i][6] = 0; }
+  boardModel.forEach(noAvilableMoves);
 }
+
+function noBackgroundColor(item, index) {
+  document.getElementById(board[index].id).style.backgroundColor = '';
+}
+
 function deleteBackColor() {
-  for (let i = 0; i < boardModel.length; i += 1) {
-    document.getElementById(board[i].id).style.backgroundColor = '';
-  }
+  boardModel.forEach(noBackgroundColor);
 }
+
 function emptyClickProc() {
   deleteFlags();
   delAvilableMoves();
@@ -426,6 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 document.getElementById('powrot').addEventListener('click', backToMainPage);
 
+/*
 function shipTypeLeft(array, shipType) {
   let numOfTypeShip = 0;
   for (let i = 0; i < array.length; i += 1) {
@@ -435,4 +460,5 @@ function shipTypeLeft(array, shipType) {
   }
   return numOfTypeShip;
 }
+*/
 
