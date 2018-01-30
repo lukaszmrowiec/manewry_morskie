@@ -1,3 +1,98 @@
+function createTable() {
+  let table;
+  let tr;
+  let td;
+  let idRow;
+  let idColumn;
+
+  table = document.createElement('table');
+
+  let img = document.createElement("IMG");
+  img.setAttribute("src", "/Images/graczA/plansza.png");
+  img.setAttribute("width", "1000");
+  img.setAttribute("height", "1340");
+  img.setAttribute("alt", "Game board");
+
+  document.getElementById('board').appendChild(img);
+
+  for (let i = 0; i < 18; i += 1) {
+      tr = document.createElement('tr');
+      if (i === 0) {
+          idRow = '00';
+      } else if (i > 0 && i < 10) {
+          idRow = '0';
+          idRow += i.toString();
+      } else {
+          idRow = i.toString();
+      }
+      for (let j = 0; j < 12; j += 1) {
+          td = document.createElement('td');
+          if (j === 0) {
+              idColumn = '00';
+          } else if (j > 0 && j < 10) {
+              idColumn += '0';
+              idColumn += j.toString();
+          } else {
+              idColumn += j.toString();
+          }
+          td.id = idRow + idColumn;
+          tr.appendChild(td);
+          idColumn = '';
+      }
+      table.appendChild(tr);
+      idRow = '';
+  }
+  document.getElementById('board').appendChild(table);
+}
+
+function createReverseTable() {
+  let table;
+  let tr;
+  let td;
+  let idRow = '';
+  let idColumn = '';
+
+  table = document.createElement('table');
+
+  let img = document.createElement("IMG");
+  img.setAttribute("src", "/Images/graczB/plansza2.png");
+  img.setAttribute("width", "1000");
+  img.setAttribute("height", "1340");
+  img.setAttribute("alt", "Game board");
+
+  document.getElementById('board').appendChild(img);
+
+  for (let i = 17; i >= 0; i -= 1) {
+      tr = document.createElement('tr');
+      if (i === 0) {
+          idRow = '00';
+      } else if (i > 0 && i < 10) {
+          idRow = '0';
+          idRow += i.toString();
+      } else {
+          idRow = i.toString();
+      }
+      for (let j = 11; j >= 0; j -= 1) {
+          td = document.createElement('td');
+          if (j === 0) {
+              idColumn = '00';
+          } else if (j > 0 && j < 10) {
+              idColumn += '0';
+              idColumn += j.toString();
+          } else {
+              idColumn += j.toString();
+          }
+          td.id = idRow + idColumn;
+          tr.appendChild(td);
+          idColumn = '';
+      }
+      table.appendChild(tr);
+      idRow = '';
+  }
+  document.getElementById('board').appendChild(table);
+}
+
+
 function cropShips(array) {
   for (let i = 0; i < 10; i += 1) {
     array.pop();
@@ -192,12 +287,14 @@ const view = {
     let msg;
 
     if (page === 'graczB') {
+      createTable();
       msg = {
         type: 'playerBisPresent',
         location: page,
       };
       socket.emit('gameControl', JSON.stringify(msg));
     } else if (page === 'graczA') {
+      createReverseTable();
       this.lackOfSecondPlayer();
     }
   },
